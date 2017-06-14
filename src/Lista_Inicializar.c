@@ -3,5 +3,7 @@
 #include "miLista.h"
 
 extern int Lista_Inicializar(ListaEnlazada *lista){
-	lista.numeroElementos = 0;
+	*lista = malloc(sizeof(ListaEnlazada));
+	(*lista).numeroElementos = 0;
+	(*lista).ancla = malloc(sizeof(ElementoLista));
 }
