@@ -3,7 +3,7 @@
 #include "miLista.h"
 //revisar tipo de lista
 extern ElementoLista *Lista_Buscar(ListaEnlazada *lista, void *objeto){
-	if(lista == NULL){
+	if(lista == NULL||objeto == NULL){
 		return NULL;		
 	}	
 	ElementoLista *elem=NULL;
