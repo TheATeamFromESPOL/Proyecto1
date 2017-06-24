@@ -5,6 +5,7 @@
 extern ElementoLista *Lista_Primero(ListaEnlazada *lista){
 	if(lista == NULL){
 		return NULL;		
-	}	
-	return lista->ancla;
+	}
+	ElementoLista *hue = lista->ancla;
+	return hue->siguiente;
 }

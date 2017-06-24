@@ -3,6 +3,6 @@
 #include "miLista.h"
 
 extern int Lista_Conteo(ListaEnlazada *lista){
-	int num = (*lista).numeroElementos;
+	int num = lista->numeroElementos;
 	return num;
 }

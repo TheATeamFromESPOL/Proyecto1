@@ -8,18 +8,20 @@ extern int Lista_InsertarFin(ListaEnlazada *lista, void *objeto){
 	elem->objeto = objeto;
 	
 	if(lista->numeroElementos == 0){
-		
 		if(lista == NULL){
 			return -1;		
 		}
-		elem-> siguiente = NULL;
-		elem-> anterior = NULL;
-		lista->ancla=elem;
+		elem->siguiente = lista->ancla;
+		elem->anterior = lista->ancla;
 		lista->numeroElementos += 1;
 		return 0;
 	}
 	else{	
-		
+		ElementoLista *ante = lista->ancla.anterior;
+		ancla->anterior=elem;
+		ante->siguiente=elem;
+		elem->siguiente=lista->ancla;
+		elem->anterior=ante;
 	}
 	return -1;
 }
