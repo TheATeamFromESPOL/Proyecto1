@@ -22,6 +22,7 @@ extern int Lista_InsertarFin(ListaEnlazada *lista, void *objeto){
 		ante->siguiente=elem;
 		elem->siguiente=lista->ancla;
 		elem->anterior=ante;
+		return 0;
 	}
 	return -1;
 }

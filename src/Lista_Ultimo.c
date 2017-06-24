@@ -7,7 +7,5 @@ extern ElementoLista *Lista_Ultimo(ListaEnlazada *lista){
 		return NULL;		
 	}
 	//como lista circular
-	return lista->ancla->anterior;
-	//como lista normal
-	ElementoLista *elem=NULL 
+	return lista->ancla.anterior; 
 }
