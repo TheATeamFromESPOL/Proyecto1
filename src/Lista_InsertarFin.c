@@ -27,3 +27,4 @@ extern int Lista_InsertarFin(ListaEnlazada *lista, void *objeto){
 	return -1;
 }
 
+//Falta ver correcciones

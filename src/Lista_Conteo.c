@@ -9,3 +9,5 @@ extern int Lista_Conteo(ListaEnlazada *lista){
 	int num = lista->numeroElementos;
 	return num;
 }
+
+//Falta ver correcciones

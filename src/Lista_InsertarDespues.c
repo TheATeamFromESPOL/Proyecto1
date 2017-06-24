@@ -20,3 +20,5 @@ extern int Lista_InsertarDespues(ListaEnlazada *lista, void *objeto, ElementoLis
 	}
 	return -1;
 }
+
+//Falta ver correcciones

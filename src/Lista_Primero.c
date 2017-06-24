@@ -9,3 +9,5 @@ extern ElementoLista *Lista_Primero(ListaEnlazada *lista){
 	ElementoLista *hue = lista->ancla;
 	return hue->siguiente;
 }
+
+//Falta ver correcciones

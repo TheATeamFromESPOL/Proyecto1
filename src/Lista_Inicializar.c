@@ -12,3 +12,5 @@ extern int Lista_Inicializar(ListaEnlazada *lista){
 	lista->ancla=ancla
 	return 0;
 }
+
+//Falta ver correcciones

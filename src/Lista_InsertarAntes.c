@@ -20,3 +20,5 @@ extern int Lista_InsertarAntes(ListaEnlazada *lista, void *objeto, ElementoLista
 	}
 	return -1;
 }
+
+//Falta ver correcciones

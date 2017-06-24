@@ -6,6 +6,8 @@ extern ElementoLista *Lista_Ultimo(ListaEnlazada *lista){
 	if(lista == NULL){
 		return NULL;		
 	}
-	//como lista circular
+
 	return lista->ancla.anterior; 
 }
+
+//Falta ver correcciones

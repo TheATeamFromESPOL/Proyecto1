@@ -19,3 +19,5 @@ extern ElementoLista *Lista_Anterior(ListaEnlazada *lista, ElementoLista *elemen
 	}
 	return NULL;
 }
+
+//Falta ver correcciones
