@@ -7,14 +7,16 @@ int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto){
 		return -1;		
 	}
 	ElementoLista *elem= (ElementoLista*)malloc(sizeof(ElementoLista));
+	if(elem==NULL){
+		return -1;
+	}
 	elem->objeto = objeto;
 	if(lista->numeroElementos == 0){
-		lista->ancla.siguiente=elem;
-		lista->ancla.anterior=elem;
 		elem->siguiente = &(lista->ancla);
 		elem->anterior = &(lista->ancla);
-		lista->numeroElementos += 1;
-		return 0;
+		lista->ancla.siguiente=elem;
+		lista->ancla.anterior=elem;
+		
 	}
 	else{
 		ElementoLista *primero=Lista_Primero(lista);
@@ -22,9 +24,9 @@ int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto){
 		elem->anterior = &(lista->ancla);
 		lista->ancla.siguiente=elem;
 		primero->anterior = elem;
-		lista->numeroElementos += 1;
-		return 0;
+		
 	}
-	return -1;
+	lista->numeroElementos += 1;
+	return 0;
 }
-//Falta ver correcciones
+

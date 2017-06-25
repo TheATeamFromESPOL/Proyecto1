@@ -175,24 +175,21 @@ void CopiarListaHaciaAdelante(ListaEnlazada *fuente, ListaEnlazada *destino){
 			exit(-1);
 		}
 	}
-
 	fprintf(stderr, "CopiarListaHaciaAdelante: prueba finalizo exitosamente.\n");
 	return;
 }
 
 void CopiarListaHaciaAtras(ListaEnlazada *fuente, ListaEnlazada *destino){
-
 	ElementoLista *elem;
 
 	for (elem = Lista_Primero(fuente); elem != NULL; elem = Lista_Siguiente(fuente, elem)){
+				
 		Lista_InsertarInicio(destino, elem->objeto);
 	}
-
 	if (Lista_Conteo(fuente) != Lista_Conteo(destino)){
 		fprintf(stderr, "CopiarListaHaciaAtras: El numero de elementos en lista fuente y destino no son iguales.\n");
 		exit(-1);
 	}
-
 	/*Comparemos...*/
 	ElementoLista *elem_fuente = NULL;
 	ElementoLista *elem_destino = NULL;
@@ -494,22 +491,23 @@ void RealizarPruebas(int numeroElementos)
 	
 	/*Llenamos la lista*/
 	LlenarLista(&lista, numeroElementos);
+	
 	/*Barajar los elementos dentro de la lista*/
 	BarajarLista(&lista, numeroElementos);
-
-	/*Buscar todos en lista*/
+	
+	/*Buscar todos en lista*/	
 	BuscarTodosEnLista(&lista, numeroElementos);
 
 	/*Copiar lista prueba*/
 	CopiarListaHaciaAdelante(&lista, &lista2);
+	
 	CopiarListaHaciaAtras(&lista, &lista3);
+	
 	CopiarListaPares(&lista, &listaPares);
-
-
+	
 	/*Finalemente ordenamos la lista*/
 	OrdenarListaAscendente(&lista);
-
-
+	
 	return;
 
 }
