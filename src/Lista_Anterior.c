@@ -1,9 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "miLista.h"
 
-extern ElementoLista *Lista_Anterior(ListaEnlazada *lista, ElementoLista *elemento){
-	if(lista == NULL|| elemento==NULL){
+ElementoLista *Lista_Anterior(ListaEnlazada *lista, ElementoLista *elemento){
+	if((lista != NULL) && (elemento != NULL)){
 		return NULL;		
 	}
 	ElementoLista *elem = NULL;

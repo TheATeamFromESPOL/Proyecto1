@@ -1,14 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "miLista.h"
 
-
-extern ElementoLista *Lista_Buscar(ListaEnlazada *lista, void *objeto){
+ElementoLista *Lista_Buscar(ListaEnlazada *lista, void *objeto){
 	if(lista == NULL||objeto == NULL){
 		return NULL;		
 	}	
 	ElementoLista *elem=NULL;
-	for (elem = Lista_Primero(lista); elem != NULL; elem = Lista_Siguiente(lista, elem)){
+	for(elem = Lista_Primero(lista); elem != NULL; elem = Lista_Siguiente(lista, elem)){
 		if(elem->objeto==objeto){
 			return elem;
 		}

@@ -1,8 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "miLista.h"
 
-extern ElementoLista *Lista_Ultimo(ListaEnlazada *lista){
+ElementoLista *Lista_Ultimo(ListaEnlazada *lista){
 	if(lista == NULL){
 		return NULL;		
 	}
