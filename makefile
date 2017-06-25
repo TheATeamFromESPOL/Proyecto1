@@ -1,16 +1,11 @@
-SRC = $(wildcard ./src/*.c)
-OBJS = $(wildcard ./obj/*.c)
-OBJ = $(wildcard *.o)
+OBJS=$(wildcard obj/*.c)
 INCLUDE = -Iinclude/
 LIBS = -Llib/
 
-prueba: $(OBJ) libmilista.so
-	gcc  $(LIBS) $(OBJS) -lm -led -o bin/$@
+#prueba: $(OBJS) libmilista.so
+#	gcc  $(LIBS) $(OBJS)-lm -o bin/$@
 
-libmilista.so: $(SRC)
-	gcc -Wall -c $(INCLUDE) -shared -fPIC src/miLista.c -o ./lib/$@
-
-pruebaLista.o: ./src/miLista.c
+pruebaLista.o: src/pruebaLista.c
 	gcc -Wall -c $(INCLUDE) ./src/pruebaLista.c -o obj/$@
 
 Lista_Anterior.o: ./src/Lista_Anterior.c
@@ -54,6 +49,9 @@ Lista_Ultimo.o: ./src/Lista_Ultimo.c
 
 Lista_Vacia.o: ./src/Lista_Vacia.c
 	gcc -Wall -c $(INCLUDE) ./src/Lista_Vacia.c -o obj/$@
+
+libmilista.so: src/pruebaLista.c
+	gcc -Wall $(INCLUDE) -shared -fPIC src/pruebaLista.c -o ./lib/libmilista.so
 
 .PHONY: clean
 clean:
