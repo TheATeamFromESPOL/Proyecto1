@@ -123,12 +123,11 @@ int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 
 /**/
 void BuscarTodosEnLista(ListaEnlazada *lista, int numeroItems){
-	printf("Lista:\n");
-	ImprimirLista(lista,Lista_Conteo(lista));
 	long conteo = (long)numeroItems;
 	long i = 0;
 
 	printf("BuscarTodosEnLista: buscando todos los elementos en la lista...\n");
+	
 	for (i = 0; i < conteo; i++){
 		ElementoLista *elem = NULL;
 		elem = Lista_Buscar(lista, (void *)i);
