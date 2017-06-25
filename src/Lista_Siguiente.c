@@ -1,4 +1,4 @@
-
+#include <stdlib.h>
 #include "miLista.h"
 
 ElementoLista *Lista_Siguiente(ListaEnlazada *lista, ElementoLista *elemento){

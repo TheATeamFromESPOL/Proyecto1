@@ -7,6 +7,8 @@
 
 //#define IMPRIMIR_LISTA
 
+
+
 void ImprimirLista(ListaEnlazada *lista, int numeroElementos){
 
 	if (Lista_Conteo(lista) != numeroElementos){
@@ -15,11 +17,15 @@ void ImprimirLista(ListaEnlazada *lista, int numeroElementos){
 	}
 
 	ElementoLista *elem = NULL;
+
 	for (elem = Lista_Primero(lista); elem != NULL; elem = Lista_Siguiente(lista, elem)) {
 
 		printf("%lu\n", (long)elem->objeto);
 	}
 }
+
+
+
 
 /*Llena la lista*/
 void LlenarLista(ListaEnlazada *lista, int numeroElementos){
@@ -27,7 +33,6 @@ void LlenarLista(ListaEnlazada *lista, int numeroElementos){
 	long i = 0;
 
 	for (i = 0; i < numeroElementos; i++){
-		
 		Lista_InsertarFin(lista, (void *)i);
 	}
 }
@@ -45,7 +50,9 @@ long IndiceAleatorio(int numeroElementos)
 /*Baraja los elementos de la lista*/
 int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 {
+
 	int i = 0;
+
 	ElementoLista *elem = NULL;
 	ListaEnlazada lista_tmp;
 
@@ -53,31 +60,36 @@ int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 	Lista_Inicializar(&lista_tmp);
 
 	//Buscar elemento, sacarlo de lista, ponerla en lista_tmp
-	int elementos_en_lista;	
+	int elementos_en_lista;
+
 	printf("BarajarLista: Barajando la lista...\n");
+
 	for (i = 0; i < numeroElementos; i++){
 		int j = 0;
-		long indiceAleatorio;
+		long indiceAleatorio = 0;
 
 		elementos_en_lista = numeroElementos - i;
+
 		/*Obtenemos indice aleatorio*/
 		indiceAleatorio = IndiceAleatorio(elementos_en_lista);
-		
+
 		elem = Lista_Primero(lista);
 
 		assert(elem != NULL);
+
 		/*Buscamos un elemento a sacar de la lista*/
 		for (elem = Lista_Primero(lista); elem != NULL; elem = Lista_Siguiente(lista, elem)) {
-			
+
 			if (j == indiceAleatorio) {
-//#ifdef IMPRIMIR_LISTA
-				printf("elemento lista: %lu\n", (long)elem->objeto);
-//#endif
+#ifdef IMPRIMIR_LISTA
+				printf("%lu\n", (long)elem->objeto);
+#endif
 				break;
 			}
 
 			j++;
 		}
+
 		if (elem == NULL){
 			/*No encontramos el valor (o Buscar esta mal implementada)*/
 			fprintf(stderr, "BarajarLista: Error critico en BarajarLista (linea %d)\n", __LINE__);
@@ -95,7 +107,6 @@ int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 	}
 
 	/*Aqui lista debe estar vacia...*/
-
 	if (!Lista_Vacia(lista)){
 		/*No encontramos el valor (o Buscar esta mal implementada)*/
 		fprintf(stderr, "BarajarLista: Error critico, lista no esta vacia (linea %d)\n", __LINE__);
@@ -123,11 +134,11 @@ int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 
 /**/
 void BuscarTodosEnLista(ListaEnlazada *lista, int numeroItems){
+
 	long conteo = (long)numeroItems;
 	long i = 0;
 
 	printf("BuscarTodosEnLista: buscando todos los elementos en la lista...\n");
-	
 	for (i = 0; i < conteo; i++){
 		ElementoLista *elem = NULL;
 		elem = Lista_Buscar(lista, (void *)i);
@@ -175,21 +186,24 @@ void CopiarListaHaciaAdelante(ListaEnlazada *fuente, ListaEnlazada *destino){
 			exit(-1);
 		}
 	}
+
 	fprintf(stderr, "CopiarListaHaciaAdelante: prueba finalizo exitosamente.\n");
 	return;
 }
 
 void CopiarListaHaciaAtras(ListaEnlazada *fuente, ListaEnlazada *destino){
+
 	ElementoLista *elem;
 
 	for (elem = Lista_Primero(fuente); elem != NULL; elem = Lista_Siguiente(fuente, elem)){
-				
 		Lista_InsertarInicio(destino, elem->objeto);
 	}
+
 	if (Lista_Conteo(fuente) != Lista_Conteo(destino)){
 		fprintf(stderr, "CopiarListaHaciaAtras: El numero de elementos en lista fuente y destino no son iguales.\n");
 		exit(-1);
 	}
+
 	/*Comparemos...*/
 	ElementoLista *elem_fuente = NULL;
 	ElementoLista *elem_destino = NULL;
@@ -353,7 +367,7 @@ void IntercambiarElementos(ListaEnlazada *lista, ElementoLista **elemento1, Elem
 }
 
 
-void OrdenarListaAscendente(ListaEnlazada *lista){	
+void OrdenarListaAscendente(ListaEnlazada *lista){
 	long numeroElementos = Lista_Conteo(lista);
 
 	int i = 0;
@@ -366,8 +380,8 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 	ElementoLista *actual, *siguiente, *minimoActual, *elem;
 	for (i = 0; i < numeroElementos; i++){
 
-		//printf("i %d\n", i);
-		
+		//printf(" i %d\n", i);
+
 		//Sacar el siguiente elemento a comparar
 		if (i == 0){
 			actual = Lista_Primero(lista);
@@ -384,7 +398,6 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 				}
 				else{
 					siguiente = Lista_Siguiente(lista, siguiente);
-					
 				}
 			}
 			actual = siguiente;
@@ -448,6 +461,7 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 		}
 
 	}
+
 	printf("OrdenarLista: Prueba de ordernar lista exitosa\n");
 }
 
@@ -488,26 +502,26 @@ void RealizarPruebas(int numeroElementos)
 	Lista_InsertarFin(&lista, (void*)7);
 	OrdenarLista(&lista);
 	exit(0);*/
-	
+
 	/*Llenamos la lista*/
 	LlenarLista(&lista, numeroElementos);
-	
+
 	/*Barajar los elementos dentro de la lista*/
 	BarajarLista(&lista, numeroElementos);
-	
-	/*Buscar todos en lista*/	
+
+	/*Buscar todos en lista*/
 	BuscarTodosEnLista(&lista, numeroElementos);
 
 	/*Copiar lista prueba*/
 	CopiarListaHaciaAdelante(&lista, &lista2);
-	
 	CopiarListaHaciaAtras(&lista, &lista3);
-	
 	CopiarListaPares(&lista, &listaPares);
-	
+
+
 	/*Finalemente ordenamos la lista*/
 	OrdenarListaAscendente(&lista);
-	
+
+
 	return;
 
 }

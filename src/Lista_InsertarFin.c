@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "miLista.h"
 
 int Lista_InsertarFin(ListaEnlazada *lista, void *objeto){

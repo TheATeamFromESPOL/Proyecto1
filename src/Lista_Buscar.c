@@ -1,4 +1,5 @@
 #include "miLista.h"
+#include <stdlib.h>
 
 ElementoLista *Lista_Buscar(ListaEnlazada *lista, void *objeto){
 	if(lista == NULL || lista->numeroElementos==0){

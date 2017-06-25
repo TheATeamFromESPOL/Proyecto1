@@ -1,4 +1,5 @@
 #include "miLista.h"
+#include <stdlib.h>
 
 ElementoLista *Lista_Anterior(ListaEnlazada *lista, ElementoLista *elemento){
 	if(lista == NULL|| elemento==NULL ||lista->numeroElementos == 0){
