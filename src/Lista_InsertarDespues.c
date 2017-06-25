@@ -2,21 +2,25 @@
 
 int Lista_InsertarDespues(ListaEnlazada *lista, void *objeto, ElementoLista *elemento){
 	if(lista!=NULL && elemento!=NULL){
-		void *objeto = elemento->objeto;
-		if(Lista_Buscar(lista,objeto)!=NULL){
-			ElementoLista *siguiente = Lista_Siguiente(lista,elemento);
-			ElementoLista *actual = Lista_Buscar(lista,objeto);
-			ElementoLista *nuevo = (ElementoLista *)malloc(sizeof(ElementoLista));
-			nuevo->objeto = objeto;
-			nuevo->anterior = actual;
-			nuevo->siguiente = siguiente;
-			siguiente->anterior = nuevo;
-			actual->siguiente = nuevo;
+		if(lista->numeroElementos==0||elemento==Lista_Ultimo(lista)){
+			Lista_InsertarFin(lista,objeto);
+		}
+		else{
+			ElementoLista *nuevo= (ElementoLista*)malloc(sizeof(ElementoLista));
+			if(nuevo==NULL){
+				return -1;
+			}
+			nuevo->objeto=objeto;
+			ElementoLista *siguiente=elemento->siguiente;
+			elemento->siguiente=nuevo;
+			siguiente->anterior=nuevo;
+			nuevo->siguiente = siguiente;			
+			nuevo->anterior = elemento;
 			lista->numeroElementos+=1;
 			return 0;
 		}
+
 	}
 	return -1;
 }
 
-//Falta ver correcciones

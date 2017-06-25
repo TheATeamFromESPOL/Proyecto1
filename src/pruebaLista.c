@@ -354,6 +354,8 @@ void IntercambiarElementos(ListaEnlazada *lista, ElementoLista **elemento1, Elem
 
 
 void OrdenarListaAscendente(ListaEnlazada *lista){
+	printf("Lista antes de ordenar:\n");
+	ImprimirLista(lista, Lista_Conteo(lista));	
 	long numeroElementos = Lista_Conteo(lista);
 
 	int i = 0;
@@ -447,7 +449,8 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 		}
 
 	}
-
+	printf("Lista despues de ordenar:\n");
+	ImprimirLista(lista, Lista_Conteo(lista));
 	printf("OrdenarLista: Prueba de ordernar lista exitosa\n");
 }
 
