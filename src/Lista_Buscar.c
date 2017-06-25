@@ -14,5 +14,4 @@ extern ElementoLista *Lista_Buscar(ListaEnlazada *lista, void *objeto){
 	}
 	return NULL;
 }
-
 //Falta ver correcciones
