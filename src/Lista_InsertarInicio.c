@@ -25,7 +25,6 @@ extern int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto){
 		lista->numeroElementos += 1;
 		return 0;
 	}
-	return -1
+	return -1;
 }
-
 //Falta ver correcciones
