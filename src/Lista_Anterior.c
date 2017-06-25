@@ -6,22 +6,12 @@ extern ElementoLista *Lista_Anterior(ListaEnlazada *lista, ElementoLista *elemen
 	if(lista == NULL|| elemento==NULL){
 		return NULL;		
 	}
-	ElementoLista *primero = Lista_Primero(lista);
-	ElementoLista *ultimo = Lista_Ultimo(lista);
-	while(primero!=ultimo){
-		if(elemento==primero){
-			return elemento->anterior;
-		}
-		primero=primero->anterior;
-	}
-	//no se puede usar el for :V
-	/*for (elem = Lista_Primero(lista); elem->objeto != NULL; elem = Lista_Siguiente(*lista, *elem)){
+	ElementoLista *elem = NULL;
+	for (elem = Lista_Primero(lista); elem!= NULL; elem = Lista_Siguiente(lista, elem)){
 		if(elem==elemento){
-			anterior = elem->anterior;
-			return anterior;
+			return elem->anterior;
 		}
-	}*/
+	}
 	return NULL;
 }
 
-//Falta ver correcciones
