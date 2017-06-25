@@ -3,7 +3,7 @@
 #include "miLista.h"
 
 extern int Lista_Vacia(ListaEnlazada *lista){
-	int num = lista->numeroElementos
+	int num = lista->numeroElementos;
 	if(num == 0){
 		return TRUE;
 	}
