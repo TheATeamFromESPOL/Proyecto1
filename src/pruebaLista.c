@@ -7,8 +7,6 @@
 
 //#define IMPRIMIR_LISTA
 
-
-
 void ImprimirLista(ListaEnlazada *lista, int numeroElementos){
 
 	if (Lista_Conteo(lista) != numeroElementos){
@@ -17,15 +15,11 @@ void ImprimirLista(ListaEnlazada *lista, int numeroElementos){
 	}
 
 	ElementoLista *elem = NULL;
-
 	for (elem = Lista_Primero(lista); elem != NULL; elem = Lista_Siguiente(lista, elem)) {
 
 		printf("%lu\n", (long)elem->objeto);
 	}
 }
-
-
-
 
 /*Llena la lista*/
 void LlenarLista(ListaEnlazada *lista, int numeroElementos){
@@ -33,6 +27,7 @@ void LlenarLista(ListaEnlazada *lista, int numeroElementos){
 	long i = 0;
 
 	for (i = 0; i < numeroElementos; i++){
+		
 		Lista_InsertarFin(lista, (void *)i);
 	}
 }
@@ -50,9 +45,7 @@ long IndiceAleatorio(int numeroElementos)
 /*Baraja los elementos de la lista*/
 int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 {
-
 	int i = 0;
-
 	ElementoLista *elem = NULL;
 	ListaEnlazada lista_tmp;
 
@@ -60,36 +53,31 @@ int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 	Lista_Inicializar(&lista_tmp);
 
 	//Buscar elemento, sacarlo de lista, ponerla en lista_tmp
-	int elementos_en_lista;
-
+	int elementos_en_lista;	
 	printf("BarajarLista: Barajando la lista...\n");
-
 	for (i = 0; i < numeroElementos; i++){
 		int j = 0;
-		long indiceAleatorio = 0;
+		long indiceAleatorio;
 
 		elementos_en_lista = numeroElementos - i;
-
 		/*Obtenemos indice aleatorio*/
 		indiceAleatorio = IndiceAleatorio(elementos_en_lista);
-
+		
 		elem = Lista_Primero(lista);
 
 		assert(elem != NULL);
-
 		/*Buscamos un elemento a sacar de la lista*/
 		for (elem = Lista_Primero(lista); elem != NULL; elem = Lista_Siguiente(lista, elem)) {
-
+			
 			if (j == indiceAleatorio) {
-#ifdef IMPRIMIR_LISTA
-				printf("%lu\n", (long)elem->objeto);
-#endif
+//#ifdef IMPRIMIR_LISTA
+				printf("elemento lista: %lu\n", (long)elem->objeto);
+//#endif
 				break;
 			}
 
 			j++;
 		}
-
 		if (elem == NULL){
 			/*No encontramos el valor (o Buscar esta mal implementada)*/
 			fprintf(stderr, "BarajarLista: Error critico en BarajarLista (linea %d)\n", __LINE__);
@@ -107,6 +95,7 @@ int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 	}
 
 	/*Aqui lista debe estar vacia...*/
+
 	if (!Lista_Vacia(lista)){
 		/*No encontramos el valor (o Buscar esta mal implementada)*/
 		fprintf(stderr, "BarajarLista: Error critico, lista no esta vacia (linea %d)\n", __LINE__);
@@ -134,7 +123,7 @@ int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 
 /**/
 void BuscarTodosEnLista(ListaEnlazada *lista, int numeroItems){
-
+	
 	long conteo = (long)numeroItems;
 	long i = 0;
 
@@ -502,10 +491,9 @@ void RealizarPruebas(int numeroElementos)
 	Lista_InsertarFin(&lista, (void*)7);
 	OrdenarLista(&lista);
 	exit(0);*/
-
+	
 	/*Llenamos la lista*/
 	LlenarLista(&lista, numeroElementos);
-
 	/*Barajar los elementos dentro de la lista*/
 	BarajarLista(&lista, numeroElementos);
 

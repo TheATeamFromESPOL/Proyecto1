@@ -3,7 +3,7 @@ INCLUDE = -Iinclude/
 LIBS = -Llib/
 
 prueba: objetos libmilista.so
-	gcc -Wall $(LIBS) $(INCLUDE) obj/*.o -lm -lmilista -o bin/$@
+	gcc -Wall $(LIBS) $(INCLUDE) obj/*.o -lm -lmilista -o ./$@
 
 libmilista.so:src/Lista*c
 	gcc -Wall $(INCLUDE) $(LIBS) -fPIC -shared -o src/Lista*.c -o lib/$@

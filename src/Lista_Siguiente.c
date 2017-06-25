@@ -2,21 +2,22 @@
 #include "miLista.h"
 
 ElementoLista *Lista_Siguiente(ListaEnlazada *lista, ElementoLista *elemento){
-	if(lista == NULL|| elemento==NULL){
+	if(lista == NULL|| elemento==NULL ||lista->numeroElementos == 0){
 		return NULL;		
 	}	 
-	ElementoLista *primero = Lista_Primero(lista);
+	
 	ElementoLista *ultimo = Lista_Ultimo(lista);
 	if(elemento==ultimo){
 		return NULL;
 	}
+	return elemento->siguiente;
+/*
+	ElementoLista *primero = Lista_Primero(lista);
 	while(primero!=ultimo){
 		if(elemento==primero){
-			return elemento->siguiente;
+			return primero->siguiente;
 		}
 		primero=primero->siguiente;
-	}
-	
-	return NULL;
+	}*/
 }
 //Falta ver correcciones

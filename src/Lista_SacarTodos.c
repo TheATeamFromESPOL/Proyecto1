@@ -1,7 +1,7 @@
 
 #include "miLista.h"
 
-extern void Lista_SacarTodos(ListaEnlazada *lista){
+void Lista_SacarTodos(ListaEnlazada *lista){
 	if(lista!=NULL){
 		ElementoLista *ancla = (ElementoLista*)malloc(sizeof(ElementoLista));
 		*ancla=lista->ancla;
