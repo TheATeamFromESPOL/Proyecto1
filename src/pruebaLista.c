@@ -353,9 +353,7 @@ void IntercambiarElementos(ListaEnlazada *lista, ElementoLista **elemento1, Elem
 }
 
 
-void OrdenarListaAscendente(ListaEnlazada *lista){
-	printf("Lista antes de ordenar:\n");
-	ImprimirLista(lista, Lista_Conteo(lista));	
+void OrdenarListaAscendente(ListaEnlazada *lista){	
 	long numeroElementos = Lista_Conteo(lista);
 
 	int i = 0;
@@ -368,8 +366,8 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 	ElementoLista *actual, *siguiente, *minimoActual, *elem;
 	for (i = 0; i < numeroElementos; i++){
 
-		//printf(" i %d\n", i);
-
+		//printf("i %d\n", i);
+		
 		//Sacar el siguiente elemento a comparar
 		if (i == 0){
 			actual = Lista_Primero(lista);
@@ -386,6 +384,7 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 				}
 				else{
 					siguiente = Lista_Siguiente(lista, siguiente);
+					
 				}
 			}
 			actual = siguiente;
@@ -449,8 +448,6 @@ void OrdenarListaAscendente(ListaEnlazada *lista){
 		}
 
 	}
-	printf("Lista despues de ordenar:\n");
-	ImprimirLista(lista, Lista_Conteo(lista));
 	printf("OrdenarLista: Prueba de ordernar lista exitosa\n");
 }
 
