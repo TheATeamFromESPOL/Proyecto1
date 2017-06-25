@@ -3,20 +3,24 @@
 #include "miLista.h"
 
 extern ElementoLista *Lista_Anterior(ListaEnlazada *lista, ElementoLista *elemento){
-	if(lista == NULL){
+	if(lista == NULL|| elemento==NULL){
 		return NULL;		
 	}
-	if(elemento == NULL){
-		return NULL;		
+	ElementoLista *primero = Lista_Primero(lista);
+	ElementoLista *ultimo = Lista_Ultimo(lista);
+	while(primero!=ultimo){
+		if(elemento==primero){
+			return elemento->anterior;
+		}
+		primero=primero->anterior;
 	}
-	ElementoLista *elem = NULL;
-	ElementoLista *anterior = NULL;
-	for (elem = Lista_Primero(*lista); elem->objeto != NULL; elem = Lista_Siguiente(*lista, *elem)){
+	//no se puede usar el for :V
+	/*for (elem = Lista_Primero(lista); elem->objeto != NULL; elem = Lista_Siguiente(*lista, *elem)){
 		if(elem==elemento){
 			anterior = elem->anterior;
 			return anterior;
 		}
-	}
+	}*/
 	return NULL;
 }
 
