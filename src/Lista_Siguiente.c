@@ -3,6 +3,7 @@
 #include "miLista.h"
 
 extern ElementoLista *Lista_Siguiente(ListaEnlazada *lista, ElementoLista *elemento){
+	
 	if(lista == NULL|| elemento==NULL){
 		return NULL;		
 	}	 
@@ -21,7 +22,6 @@ extern ElementoLista *Lista_Siguiente(ListaEnlazada *lista, ElementoLista *eleme
 			return siguiente;
 		}
 	}*/
-	return NULL;
 }
 
 //Falta ver correcciones
