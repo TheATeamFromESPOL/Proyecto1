@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "miLista.h"
 
 
-extern ElementoLista *Lista_Buscar(ListaEnlazada *lista, void *objeto){
+ElementoLista *Lista_Buscar(ListaEnlazada *lista, void *objeto){
 	if(lista == NULL||objeto == NULL){
 		return NULL;		
 	}	

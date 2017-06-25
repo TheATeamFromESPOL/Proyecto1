@@ -1,8 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "miLista.h"
 
-extern void Lista_Sacar(ListaEnlazada *lista, ElementoLista *elemento){
+void Lista_Sacar(ListaEnlazada *lista, ElementoLista *elemento){
 	if(lista!=NULL && elemento!=NULL){
 		void *objeto = elemento->objeto;
 		if(Lista_Buscar(lista,objeto)!=NULL){

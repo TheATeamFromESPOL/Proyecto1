@@ -1,9 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "miLista.h"
 
-//revisar tipo de lista
-extern int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto){
+int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto){
 	
 	if(lista == NULL){
 		return -1;		

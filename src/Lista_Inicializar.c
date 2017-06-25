@@ -1,8 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "miLista.h"
 
-extern int Lista_Inicializar(ListaEnlazada *lista){
+int Lista_Inicializar(ListaEnlazada *lista){
 	if(lista == NULL){
 		return -1;		
 	}
