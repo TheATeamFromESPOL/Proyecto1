@@ -7,7 +7,7 @@ extern ElementoLista *Lista_Anterior(ListaEnlazada *lista, ElementoLista *elemen
 		return NULL;		
 	}
 	ElementoLista *elem = NULL;
-	for (elem = Lista_Primero(lista); elem!= NULL; elem = Lista_Siguiente(lista, elem)){
+	for (elem = Lista_Primero(lista); elem != NULL; elem = Lista_Siguiente(lista, elem)){
 		if(elem==elemento){
 			return elem->anterior;
 		}
